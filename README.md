@@ -13,7 +13,7 @@ Y no nos olvidemos de JavaScript, el ingrediente secreto que añade interactivid
 
 ¡Únete a nosotros en AcademicHub y comienza tu viaje hacia el conocimiento! 🚀📚 #Educación #Tecnología #Innovación #Aprendizaje
 
-![AcademicHub](./Universiti/static/img/academicHub.png)
+![AcademicHub](./University/static/img/academicHub.png)
 
 ## Características principales
 - **Framework Django:** Utilizamos Django en el backend para proporcionar una sólida arquitectura para nuestra plataforma.
