@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} Aboutme {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href='{% static "css/styles.css" %}'>
+
+<section id="contacto" class="contacto bg-dark text-light py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h2 class="mb-4">¡Hablemos!</h2>
+        <p class="lead">Contáctame para formar parte de tu equipo.</p>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="card bg-secondary text-white rounded">
+          <div class="card-body">
+            <h3 class="card-title">Formulario de contacto</h3>
+            <p class="card-text">Por favor, envía un correo electrónico para contactarme.</p>
+            <a href="mailto:jeisoncardozo@outlook.com" class="btn btn-primary">
+              Contacto
+              <i class="bi bi-envelope-check-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img src="{% static 'img/mail.jpg' %}" class="img-fluid rounded-circle" alt="Imagen de contacto">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- javascript -->
+<script src="{% static 'js/config.js'%}"></script> 
+<!-- sweetalert2  -->
+<script src="{% static 'js/utils/alertSwal.js'%}"></script> 
+{% endblock%}

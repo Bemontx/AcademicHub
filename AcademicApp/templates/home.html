@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<section id="home" class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4">¡Bienvenido!</h2>
+                <p class="lead">En esta área podrás revisar cursos relacionados y registrarte en nuestro sistema, donde tus datos personales quedarán almacenados en nuestra base de datos.</p>
+            </div>
+            <div class="col-md-6">
+                <!-- Aquí podrías agregar contenido adicional, como formularios o imágenes -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Gestion de curso</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form id="formularioCurso" action="/registrarCurso/" method="post">{% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" minlength="3" maxlength="50" placeholder="Ingresa Curso que no este en lista" required autofocus/>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="numCreditos" name="numCreditos" class="form-control" min="1" max="10" step="1" value="1" required autofocus/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-block text-white" value="Guardar" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h2>Listado de cursos Programacion</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="centrado">#</th>
+                            <th>Curso</th>
+                            <th>Creditos</th>
+                            <th colspan="'2">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in cursos%}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.nombre}}</td>
+                            <td>{{i.creditos}}</td>
+                            <td><a href="{% url 'eliminar_curso' id=i.id %}" class="btn btn-sml btn-danger btn-info btnEliminacion">Eliminar</a>
+                            </td>
+                        </tr>
+        
+                        {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- javascript -->
+<script src="{% static 'js/config.js'%}"></script> 
+<!-- sweetalert2  -->
+<script src="{% static 'js/utils/alertSwal.js'%}"></script> 
+{% endblock%}
